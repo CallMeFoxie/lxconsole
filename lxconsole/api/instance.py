@@ -1080,7 +1080,7 @@ def api_instance_endpoint(endpoint):
     if backups:
       for backup in backups['metadata']:
         # Check if backup file exists
-        filename = 'backups/' + str(server.name) + '/' + project + '/' + name + '/' + backup['name']
+        filename = '/var/lib/incus/backups/instances/' + name + '/' + backup['name']
         if os.path.isfile(filename):
           backup.update({'backup_file_exists': True})
           backup.update({'backup_file_size': os.path.getsize(filename)})
